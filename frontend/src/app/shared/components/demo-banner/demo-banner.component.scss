@@ -1,0 +1,4 @@
+:host { display:block; }
+.connection-banner { display:flex; align-items:center; gap:8px; padding:8px 26px; border-bottom:1px solid #20364d; color:#91a9c0; background:#0c1d2d; font-size:9px; line-height:1.4; }
+.connection-banner i { color:#54aafa; font-size:12px; }
+@media (max-width:575.98px) { .connection-banner { align-items:flex-start; padding:8px 10px; font-size:8px; } }

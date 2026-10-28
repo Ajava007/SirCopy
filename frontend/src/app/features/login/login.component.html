@@ -1,0 +1,29 @@
+<main class="auth-page">
+  <section class="auth-showcase" aria-label="VeynaX manufacturing platform">
+    <a class="auth-brand" routerLink="/" aria-label="VeynaX home"><span class="auth-mark"><i class="bi bi-speedometer2"></i></span><span><strong>VEYNA<span>X</span></strong><small>MOTOR WORKS · ERP</small></span></a>
+    <div class="showcase-copy"><span class="auth-kicker"><i></i> CONNECTED MANUFACTURING</span><h1>Build with<br><em>precision.</em></h1><p>One control room for production, quality, inventory and delivery.</p></div>
+    <div class="auth-illustration" aria-hidden="true"><div class="scene-grid"></div><div class="scene-platform"></div><div class="scene-car"><i></i><b></b></div><div class="scene-wheel scene-wheel--a"></div><div class="scene-wheel scene-wheel--b"></div><div class="scene-light scene-light--one"></div><div class="scene-light scene-light--two"></div></div>
+    <div class="showcase-foot"><span>OPERATIONS PLATFORM</span><span>01 <i></i> 04</span></div>
+  </section>
+  <section class="auth-panel">
+    <div class="auth-card">
+      <div class="auth-mobile-brand"><span class="auth-mark"><i class="bi bi-speedometer2"></i></span><span><strong>VEYNA<span>X</span></strong><small>MOTOR WORKS</small></span></div>
+      <div class="auth-heading"><span class="auth-kicker">SECURE WORKSPACE</span><h2>{{ mode() === 'login' ? 'Welcome back' : 'Create your account' }}</h2><p>{{ mode() === 'login' ? 'Sign in to continue to your factory workspace.' : 'Register for access to the VeynaX operations platform.' }}</p></div>
+      <ul class="nav nav-pills nav-fill auth-tabs" aria-label="Account action">
+        <li class="nav-item"><button type="button" class="nav-link" [class.active]="mode()==='login'" [attr.aria-pressed]="mode()==='login'" (click)="mode.set('login')">Sign in</button></li>
+        <li class="nav-item"><button type="button" class="nav-link" [class.active]="mode()==='register'" [attr.aria-pressed]="mode()==='register'" (click)="mode.set('register')">Register</button></li>
+      </ul>
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        @if (mode() === 'register') {
+          <div class="mb-3"><label class="form-label" for="fullName">Full name</label><input id="fullName" type="text" class="form-control" formControlName="fullName" placeholder="Jane Engineer" autocomplete="name"><vx-field-error [control]="form.get('fullName')" /></div>
+          <div class="mb-3"><label class="form-label" for="email">Email</label><input id="email" type="email" class="form-control" formControlName="email" placeholder="jane@veynax.com" autocomplete="email"><vx-field-error [control]="form.get('email')" /></div>
+        }
+        <div class="mb-3"><label class="form-label" for="username">Username</label><input id="username" type="text" class="form-control" formControlName="username" placeholder="Your username" autocomplete="username"><vx-field-error [control]="form.get('username')" /></div>
+        <div class="mb-4"><label class="form-label" for="password">Password</label><input id="password" type="password" class="form-control" formControlName="password" placeholder="Enter your password" autocomplete="current-password"><vx-field-error [control]="form.get('password')" /></div>
+        <button type="submit" class="btn btn-primary auth-submit w-100" [disabled]="loading()">@if (loading()) { <span class="spinner-border spinner-border-sm me-2"></span> }{{ mode() === 'login' ? 'Sign in to workspace' : 'Create account' }}<i class="bi bi-arrow-right"></i></button>
+      </form>
+      <div class="auth-note"><i class="bi bi-shield-lock"></i><span>Accounts and access permissions are managed by the backend.</span></div>
+    </div>
+    <footer class="auth-footer"><span>VEYNA<span>X</span> MOTOR WORKS</span><span>SECURE ERP ACCESS</span></footer>
+  </section>
+</main>

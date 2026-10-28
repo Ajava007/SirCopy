@@ -1,0 +1,137 @@
+<div class="landing-page">
+  <header class="landing-nav">
+    <a class="landing-brand" routerLink="/" aria-label="VeynaX Motors home">
+      <span class="landing-brand__mark"><i class="bi bi-speedometer2"></i></span>
+      <span><strong>VEYNAX</strong><small>MOTOR WORKS</small></span>
+    </a>
+    <nav class="landing-links" aria-label="Landing page navigation">
+      <a href="#craft">Our craft</a>
+      <a href="#systems">The platform</a>
+      <a href="#factory">Smart factory</a>
+    </nav>
+    <div class="landing-nav__actions">
+      <a class="nav-signin" routerLink="/login">Sign in</a>
+      <a class="nav-console" [routerLink]="auth.isAuthenticated() ? '/workflow' : '/login'">
+        <span>{{ auth.isAuthenticated() ? 'Open console' : 'Factory console' }}</span><i class="bi bi-arrow-up-right"></i>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__grid"></div>
+      <div class="hero__copy">
+        <div class="hero-kicker"><span class="hero-kicker__line"></span> BUILT WITH PRECISION. MADE TO MOVE.</div>
+        <h1 id="hero-title">The future<br>takes <em>shape</em><br>on the line.</h1>
+        <p class="hero-lede">A smarter way to design, build and deliver every vehicle. One connected factory, from the first component to the final handoff.</p>
+        <div class="hero-actions">
+          <a class="button-primary" [routerLink]="auth.isAuthenticated() ? '/workflow' : '/login'">Explore the factory <i class="bi bi-arrow-right"></i></a>
+          <a class="button-quiet" href="#craft"><span class="play-icon"><i class="bi bi-play-fill"></i></span> Discover our approach</a>
+        </div>
+        <div class="hero-proof"><span class="proof-icon"><i class="bi bi-stars"></i></span><span><strong>Made for the next mile</strong><small>Engineering, production and quality in sync.</small></span></div>
+      </div>
+
+      <div class="factory-art" aria-label="Illustration of a car on an automated assembly line with industrial robot arms" role="img">
+        <div class="factory-art__label"><span class="live-dot"></span> VEYNAX · ASSEMBLY CELL 04 <span class="factory-art__label-right">LIVE SYSTEMS</span></div>
+        <div class="factory-art__floor"></div>
+        <div class="art-scanline"></div>
+        <svg class="robot-scene" viewBox="0 0 920 610" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="carBody" x1=".12" y1="0" x2=".83" y2="1"><stop stop-color="#f8f8f5"/><stop offset=".38" stop-color="#cbd0d1"/><stop offset=".68" stop-color="#8f999d"/><stop offset="1" stop-color="#e8e9e5"/></linearGradient>
+            <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#66777f"/><stop offset="1" stop-color="#222d33"/></linearGradient>
+            <linearGradient id="armRed" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fd5b4c"/><stop offset="1" stop-color="#a91820"/></linearGradient>
+            <linearGradient id="floorGlow" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#ef3b32" stop-opacity=".2"/><stop offset="1" stop-color="#ef3b32" stop-opacity="0"/></linearGradient>
+            <pattern id="tinyGrid" width="38" height="38" patternUnits="userSpaceOnUse"><path d="M38 0H0V38" fill="none" stroke="#fff" stroke-opacity=".045" stroke-width="1"/></pattern>
+            <filter id="redGlow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="8" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <rect width="920" height="610" fill="url(#tinyGrid)"/>
+          <path d="M0 431H920" stroke="#768087" stroke-opacity=".3"/>
+          <path d="M72 435 920 435 920 610 0 610Z" fill="url(#floorGlow)"/>
+          <g class="ceiling-lights" fill="#d8e1e2" opacity=".72"><path d="M124 52h110l-19 8H107z"/><path d="M376 52h120l-15 8H357z"/><path d="M671 52h109l15 8H649z"/></g>
+          <g class="robot robot--left" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M112 435h105l-5 18H99z" fill="#667178"/><path d="M144 434V282" stroke="#aab3b5" stroke-width="24"/><circle cx="144" cy="278" r="29" fill="url(#armRed)" stroke="#fa6a58" stroke-width="4"/>
+            <g class="robot-arm robot-arm--left"><path d="m160 264 89-96" stroke="#c7cdcd" stroke-width="31"/><path d="m168 254 79-82" stroke="url(#armRed)" stroke-width="20"/><circle cx="253" cy="161" r="23" fill="#c8ced0" stroke="#e4e6e4" stroke-width="4"/>
+            <path d="m271 150 65 66" stroke="url(#armRed)" stroke-width="24"/><path d="m325 207 23 11-9 13" fill="none" stroke="#e3e7e5" stroke-width="7"/><path d="m326 215 13 5" stroke="#f04a3f" stroke-width="5"/></g>
+          </g>
+          <g class="robot robot--right" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M711 435h116l6 18H700z" fill="#667178"/><path d="M768 435V302" stroke="#aab3b5" stroke-width="27"/><circle cx="768" cy="298" r="30" fill="url(#armRed)" stroke="#fa6a58" stroke-width="4"/>
+            <g class="robot-arm robot-arm--right"><path d="m746 282-105-85" stroke="#c7cdcd" stroke-width="32"/><path d="m741 275-95-74" stroke="url(#armRed)" stroke-width="20"/><circle cx="630" cy="189" r="24" fill="#c8ced0" stroke="#e4e6e4" stroke-width="4"/>
+            <path d="m609 195-48 86" stroke="#c7cdcd" stroke-width="23"/><path d="m559 278-17 23" stroke="#e3e7e5" stroke-width="8"/><path d="m554 276 10 5" stroke="#f04a3f" stroke-width="5"/></g>
+          </g>
+          <g class="robot robot--back" stroke-linecap="round" stroke-linejoin="round" opacity=".62">
+            <path d="M390 220V103" stroke="#7f8b91" stroke-width="19"/><circle cx="390" cy="103" r="19" fill="#db3b32"/><path d="m400 92 76-56" stroke="#aeb8ba" stroke-width="19"/><circle cx="480" cy="34" r="14" fill="#7c888d"/><path d="m491 38 41 47" stroke="#b7c0c0" stroke-width="16"/><path d="m531 82 15 10" stroke="#e3e7e5" stroke-width="5"/>
+          </g>
+          <g class="car">
+            <ellipse cx="465" cy="422" rx="326" ry="28" fill="#080b0d" opacity=".75"/>
+            <path d="M180 378c16-28 53-41 101-52l105-94c17-15 39-23 62-24l130-4c35-1 63 12 85 37l66 76c38 11 57 27 64 51l7 29-22 19H164l-11-22c5-8 15-13 27-16Z" fill="url(#carBody)" stroke="#f9fbf8" stroke-opacity=".75" stroke-width="3"/>
+            <path d="m405 246-105 91 221-1 58-132-106 2c-25 1-49 13-68 40Z" fill="url(#glass)" stroke="#e5e8e6" stroke-width="4"/>
+            <path d="m592 207-61 129 144 1-66-75c-17-20-34-38-53-55-7-1-11-1-14 0Z" fill="url(#glass)" stroke="#e5e8e6" stroke-width="4"/>
+            <path d="M520 216 457 337M300 338h421M287 355l-38 3M724 354h39" stroke="#7f898c" stroke-opacity=".7" stroke-width="3"/>
+            <path d="M173 359c19-6 40-8 63-6l-9 18-57 8-8-7z" fill="#fff3dc"/><path d="M764 356q25 2 35 13l-4 10-31-2z" fill="#f1493d" filter="url(#redGlow)"/>
+            <path d="m199 382 32 3m512-1 27 4" stroke="#fff" stroke-opacity=".7" stroke-width="3"/>
+            <g class="wheel"><circle cx="290" cy="407" r="43" fill="#101518" stroke="#70797d" stroke-width="7"/><circle cx="290" cy="407" r="23" fill="#c5cccd"/><circle cx="290" cy="407" r="9" fill="#333c41"/><path d="M290 386v42m-21-21h42m-36-15 30 30m0-30-30 30" stroke="#768187" stroke-width="4"/></g>
+            <g class="wheel"><circle cx="685" cy="407" r="43" fill="#101518" stroke="#70797d" stroke-width="7"/><circle cx="685" cy="407" r="23" fill="#c5cccd"/><circle cx="685" cy="407" r="9" fill="#333c41"/><path d="M685 386v42m-21-21h42m-36-15 30 30m0-30-30 30" stroke="#768187" stroke-width="4"/></g>
+            <path d="M269 382q21-17 43 0M664 382q21-17 43 0" fill="none" stroke="#e9edeb" stroke-width="5"/>
+          </g>
+          <g class="spark spark--one" fill="#ffb36c" filter="url(#redGlow)"><path d="m352 201 5 14 14 5-14 5-5 14-5-14-14-5 14-5z"/><circle cx="369" cy="245" r="3"/></g>
+          <g class="spark spark--two" fill="#ffb36c" filter="url(#redGlow)"><path d="m568 286 4 11 11 4-11 4-4 11-4-11-11-4 11-4z"/><circle cx="590" cy="264" r="3"/></g>
+          <path d="M88 476h744" stroke="#aeb6b6" stroke-opacity=".18" stroke-dasharray="3 10"/>
+          <g fill="#ec4e42"><circle cx="128" cy="476" r="3"/><circle cx="792" cy="476" r="3"/></g>
+          <g class="art-coordinates" fill="#819096" font-family="monospace" font-size="10"><text x="47" y="570">ROBOTIC ASSEMBLY</text><text x="735" y="570">01 / 04</text><text x="48" y="93">PRECISION CELL</text></g>
+        </svg>
+        <div class="art-status"><span class="art-status__icon"><i class="bi bi-activity"></i></span><span><small>ASSEMBLY LINE</small><strong>In perfect motion</strong></span><span class="art-status__bars"><i></i><i></i><i></i><i></i><i></i></span></div>
+        <div class="art-side-note"><span>DESIGNED<br>TOGETHER.</span><i></i><span>BUILT<br>TOGETHER.</span></div>
+      </div>
+      <div class="hero-index"><span>01</span><i></i><span>04</span></div>
+      <a class="scroll-cue" href="#craft"><span>SCROLL TO EXPLORE</span><i class="bi bi-arrow-down"></i></a>
+    </section>
+
+    <section class="trust-strip" aria-label="VeynaX manufacturing approach">
+      <div><span class="trust-icon"><i class="bi bi-diagram-3"></i></span><span><strong>One connected journey</strong><small>From supplier to showroom</small></span></div>
+      <div><span class="trust-icon"><i class="bi bi-bullseye"></i></span><span><strong>Quality at every stage</strong><small>Built into every decision</small></span></div>
+      <div><span class="trust-icon"><i class="bi bi-lightning-charge"></i></span><span><strong>People and precision</strong><small>Working in harmony</small></span></div>
+      <div class="trust-strip__caption">THE VEYNAX WAY <span>—</span> BETTER, EVERY DAY.</div>
+    </section>
+
+    <section class="craft-section" id="craft">
+      <div class="section-intro">
+        <div class="section-intro__copy"><div class="section-kicker"><span>01</span> OUR CRAFT</div><h2>More than a factory.<br><em>A promise in motion.</em></h2></div>
+        <p>Every great drive starts long before the road. It begins with people, ideas and parts coming together with purpose—and a standard that never stands still.</p>
+      </div>
+      <div class="craft-cards">
+        <article class="craft-card craft-card--dark">
+          <div class="craft-card__top"><span>01 / ENGINEERING</span><i class="bi bi-bezier2"></i></div>
+          <div class="craft-visual craft-visual--blueprint"><div class="blueprint-car"><span></span><i></i><b></b></div><div class="blueprint-dimensions"><span>4,820 mm</span><i></i><span>1,890 mm</span></div></div>
+          <h3>Every detail,<br>thought through.</h3><p>One digital thread connects the first drawing to the final build specification.</p>
+          <a routerLink="/engineering" class="craft-link">Explore engineering <i class="bi bi-arrow-up-right"></i></a>
+        </article>
+        <article class="craft-card craft-card--red">
+          <div class="craft-card__top"><span>02 / MANUFACTURING</span><i class="bi bi-gear-wide-connected"></i></div>
+          <div class="craft-visual craft-visual--line"><div class="line-light"></div><div class="line-car"></div><span class="line-robot line-robot--a"></span><span class="line-robot line-robot--b"></span><div class="line-track"></div></div>
+          <h3>Crafted by people.<br>Elevated by precision.</h3><p>Skilled hands and intelligent automation work together on every vehicle.</p>
+          <a routerLink="/production" class="craft-link">See production <i class="bi bi-arrow-up-right"></i></a>
+        </article>
+        <article class="craft-card craft-card--sand">
+          <div class="craft-card__top"><span>03 / QUALITY</span><i class="bi bi-shield-check"></i></div>
+          <div class="craft-visual craft-visual--quality"><div class="quality-ring quality-ring--outer"></div><div class="quality-ring quality-ring--inner"></div><i class="bi bi-check2"></i><span class="quality-point quality-point--one"></span><span class="quality-point quality-point--two"></span><span class="quality-point quality-point--three"></span></div>
+          <h3>Confidence,<br>built in.</h3><p>Traceable checks protect the details you may never see—and always feel.</p>
+          <a routerLink="/quality" class="craft-link">Discover quality <i class="bi bi-arrow-up-right"></i></a>
+        </article>
+      </div>
+    </section>
+
+    <section class="factory-section" id="factory">
+      <div class="factory-section__image"><div class="factory-image-grid"></div><div class="factory-image-copy"><span class="section-kicker section-kicker--light">THE SMART FACTORY</span><strong>Every station<br>in the same story.</strong><span>SUPPLY <i></i> BUILD <i></i> VERIFY <i></i> DELIVER</span></div><div class="factory-orbit factory-orbit--one"></div><div class="factory-orbit factory-orbit--two"></div><div class="factory-factorymark">V / X</div></div>
+      <div class="factory-section__copy" id="systems"><div class="section-kicker"><span>02</span> THE PLATFORM</div><h2>Clarity across<br>the whole build.</h2><p>VeynaX brings the moving parts of automotive manufacturing into one considered workspace—so every team can see what matters and keep the journey moving.</p>
+        <div class="platform-list"><a routerLink="/supply-chain"><span>01</span><span><strong>Know what’s coming</strong><small>Suppliers, orders and material readiness.</small></span><i class="bi bi-arrow-up-right"></i></a><a routerLink="/workflow"><span>02</span><span><strong>See the whole build</strong><small>Plans, work orders and quality gates.</small></span><i class="bi bi-arrow-up-right"></i></a><a routerLink="/finished-vehicles"><span>03</span><span><strong>Deliver with confidence</strong><small>Trace every vehicle to its destination.</small></span><i class="bi bi-arrow-up-right"></i></a></div>
+      </div>
+    </section>
+
+    <section class="closing-cta">
+      <div class="closing-cta__mark"><i class="bi bi-arrow-up-right"></i></div><div><span>THE NEXT CHAPTER STARTS HERE</span><h2>Make every build<br>your best one yet.</h2></div><a [routerLink]="auth.isAuthenticated() ? '/workflow' : '/login'">Enter the factory console <i class="bi bi-arrow-right"></i></a>
+      <div class="closing-cta__watermark">V</div>
+    </section>
+  </main>
+
+  <footer class="landing-footer"><a class="landing-brand landing-brand--footer" routerLink="/"><span class="landing-brand__mark"><i class="bi bi-speedometer2"></i></span><span><strong>VEYNAX</strong><small>MOTOR WORKS</small></span></a><span>ENGINEERED FOR THE WAY FORWARD.</span><span>© 2026 VEYNAX MOTOR WORKS</span></footer>
+</div>
